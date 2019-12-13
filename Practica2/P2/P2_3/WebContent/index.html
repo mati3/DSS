@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Pagina de mis productos</title>
+<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	
+    $('#btn1').on('click', function(){
+        $.ajax({
+            type: "GET",
+            url: "http://localhost:8080/P2_3/servlet",
+            success: function(response) {
+                $('#div-results').html(response);
+            }
+        });
+    });
+    
+    $('#btn2').on('click', function(){
+        $.ajax({
+            type: "GET",
+            url: "http://localhost:8080/P2_3/addProducto.html",
+            success: function(response) {
+                $('#div-results2').html(response);
+            }
+        });
+    });
+    
+    $('#btn3').on('click', function(){
+        $.ajax({
+            type: "GET",
+            url: "http://localhost:8080/P2_3/rest/todos",
+            success: function(response) {
+                $('#div-results3').html(response);
+            }
+        });
+    });
+
+});
+</script>
+</head>
+<body>
+   
+	<!-- No poner en un form -->
+
+   <button id="btn3">Cargar Productos Iniciales</button> 
+   <div id="div-results3"></div> 
+
+   <button id="btn1">Cargar Productos</button> 
+   <div id="div-results"></div>
+   
+   <button id="btn2">Añadir nuevo producto</button> 
+   <div id="div-results2"></div>
+   
+  <!--   
+   <form  action="http://localhost:8080/P2_3/addProducto.html">
+       <button>Añadir nuevo producto</button>
+   </form> 
+   
+    -->   
+                 
+</body>
+</html> 
+
+ 

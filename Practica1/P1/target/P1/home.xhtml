@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+	<h:head>
+		<title>Practica 1 Matilde Cabrera González</title>	
+        <h:graphicImage value="/resources/img/Luis_Fonsi.jpg" />	   
+	</h:head>
+	<h:body>
+<h1>Luis Fonsi Rodriguez López-Cepero</h1>
+		<h:form>
+			<h:commandButton style="color:green" action="#{webmusical.moveToHome}" value="Home" />
+			<h:commandButton action="#{webmusical.moveTobiografia}" value="Biografía" />
+			<h:commandButton action="#{webmusical.moveTodiscografia}" value="Discografía" />
+			<h:commandButton action="#{webmusical.moveToformulario}" value="Formulario" />
+			<h:commandButton action="#{webmusical.moveToGira}" value="Gira 2018" />
+		</h:form>	
+		
+	En el top 10 de la semana durante 500 semanas seguidas...
+		
+	<h:form>
+	<h:graphicImage value="/resources/img/portada_top.jpg" />	
+	</h:form>
+		
+<h3>Redes Sociales</h3>
+		<h:form>
+		<h:outputLink  target="_blank"
+			value="https://www.facebook.com/luisfonsi/">
+			<h:outputText value=" Facebook" />
+		</h:outputLink>
+		</h:form>	
+		<h:form>	
+		<h:outputLink  target="_blank"
+			value="https://twitter.com/luisfonsi">
+			<h:outputText value=" Twiter" />
+		</h:outputLink>
+		</h:form>	
+		<h:form>
+		<h:outputLink  target="_blank"
+			value="https://www.instagram.com/luisfonsi/">
+			<h:outputText value=" Instagram" />
+		</h:outputLink>
+		</h:form>	
+		<h:form>
+		<h:outputLink  target="_blank"
+			value="https://www.youtube.com/user/LuisFonsiVEVO">
+			<h:outputText value=" YouTube" />
+		</h:outputLink>
+		</h:form>	
+
+  </h:body>
+</html>
