@@ -1,0 +1,388 @@
+Prefix(:=<http://www.semanticweb.org/mati/ontologies/2019/11/untitled-ontology-4#>)
+Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
+Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
+Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
+Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
+
+
+Ontology(<http://www.semanticweb.org/mati/ontologies/2019/11/untitled-ontology-4>
+
+Declaration(Class(:Berlina))
+Declaration(Class(:Boxer))
+Declaration(Class(:Buses))
+Declaration(Class(:Cabin))
+Declaration(Class(:Camper))
+Declaration(Class(:Cars))
+Declaration(Class(:Chrysler))
+Declaration(Class(:Commercial))
+Declaration(Class(:Convertible))
+Declaration(Class(:CostValuePartition))
+Declaration(Class(:CostlyVehicle))
+Declaration(Class(:Coupé))
+Declaration(Class(:Expensive))
+Declaration(Class(:In-line))
+Declaration(Class(:Low-cost))
+Declaration(Class(:Medium-cost))
+Declaration(Class(:Mercedes))
+Declaration(Class(:Motor))
+Declaration(Class(:Motorhome))
+Declaration(Class(:PartsVehicle))
+Declaration(Class(:Pickup-truck))
+Declaration(Class(:Rotary))
+Declaration(Class(:SUV))
+Declaration(Class(:Straight))
+Declaration(Class(:Trucks))
+Declaration(Class(:VEE))
+Declaration(Class(:Vans))
+Declaration(Class(:Wheels))
+Declaration(Class(:alloy))
+Declaration(Class(:bus-frame))
+Declaration(Class(:car-chassis))
+Declaration(Class(:chassis))
+Declaration(Class(:chrome))
+Declaration(Class(:high-speed))
+Declaration(Class(:many-seats))
+Declaration(Class(:sporty))
+Declaration(Class(:steel))
+Declaration(Class(:summer))
+Declaration(Class(:touring))
+Declaration(Class(:truck-chassis))
+Declaration(Class(:tyre))
+Declaration(Class(:van-chassis))
+Declaration(Class(:vehicles))
+Declaration(Class(:wheel-rim))
+Declaration(Class(:winter))
+Declaration(Class(<http://www.semanticweb.org/mati/ontologies/2019/11/untitled-ontology-4#2-seats>))
+Declaration(Class(<http://www.semanticweb.org/mati/ontologies/2019/11/untitled-ontology-4#5-seats>))
+Declaration(Class(<http://www.semanticweb.org/mati/ontologies/2019/11/untitled-ontology-4#8-seats>))
+Declaration(Class(<http://www.semanticweb.org/mati/ontologies/2019/11/untitled-ontology-4#VR&W>))
+Declaration(ObjectProperty(:areWheelsOf))
+Declaration(ObjectProperty(:hasCabin))
+Declaration(ObjectProperty(:hasChassis))
+Declaration(ObjectProperty(:hasMotor))
+Declaration(ObjectProperty(:hasPart))
+Declaration(ObjectProperty(:hasPartOf))
+Declaration(ObjectProperty(:hasWheels))
+Declaration(ObjectProperty(:isCabinOf))
+Declaration(ObjectProperty(:isChassisOf))
+Declaration(ObjectProperty(:isExpensive))
+Declaration(ObjectProperty(:isMotorOf))
+Declaration(DataProperty(:hasMaintenanceCostPerYear))
+Declaration(DataProperty(:hasPrice))
+############################
+#   Object Properties
+############################
+
+# Object Property: :areWheelsOf (:areWheelsOf)
+
+SubObjectPropertyOf(:areWheelsOf :hasPartOf)
+InverseObjectProperties(:areWheelsOf :hasWheels)
+
+# Object Property: :hasCabin (:hasCabin)
+
+SubObjectPropertyOf(:hasCabin :hasPart)
+InverseObjectProperties(:hasCabin :isCabinOf)
+ObjectPropertyDomain(:hasCabin :vehicles)
+ObjectPropertyRange(:hasCabin :Cabin)
+
+# Object Property: :hasChassis (:hasChassis)
+
+SubObjectPropertyOf(:hasChassis :hasPart)
+InverseObjectProperties(:hasChassis :isChassisOf)
+ObjectPropertyDomain(:hasChassis :vehicles)
+ObjectPropertyRange(:hasChassis :chassis)
+
+# Object Property: :hasMotor (:hasMotor)
+
+SubObjectPropertyOf(:hasMotor :hasPart)
+InverseObjectProperties(:hasMotor :isMotorOf)
+ObjectPropertyDomain(:hasMotor :vehicles)
+ObjectPropertyRange(:hasMotor :Motor)
+
+# Object Property: :hasPart (:hasPart)
+
+InverseObjectProperties(:hasPart :hasPartOf)
+ObjectPropertyDomain(:hasPart :vehicles)
+ObjectPropertyRange(:hasPart :PartsVehicle)
+
+# Object Property: :hasPartOf (:hasPartOf)
+
+SubObjectPropertyOf(:hasPartOf owl:topObjectProperty)
+FunctionalObjectProperty(:hasPartOf)
+
+# Object Property: :hasWheels (:hasWheels)
+
+SubObjectPropertyOf(:hasWheels :hasPart)
+ObjectPropertyDomain(:hasWheels :vehicles)
+ObjectPropertyRange(:hasWheels :Wheels)
+
+# Object Property: :isCabinOf (:isCabinOf)
+
+SubObjectPropertyOf(:isCabinOf :hasPartOf)
+
+# Object Property: :isChassisOf (:isChassisOf)
+
+SubObjectPropertyOf(:isChassisOf :hasPartOf)
+
+# Object Property: :isExpensive (:isExpensive)
+
+FunctionalObjectProperty(:isExpensive)
+ObjectPropertyRange(:isExpensive :CostValuePartition)
+
+# Object Property: :isMotorOf (:isMotorOf)
+
+SubObjectPropertyOf(:isMotorOf :hasPartOf)
+
+
+############################
+#   Data Properties
+############################
+
+# Data Property: :hasMaintenanceCostPerYear (:hasMaintenanceCostPerYear)
+
+SubDataPropertyOf(:hasMaintenanceCostPerYear owl:topDataProperty)
+
+# Data Property: :hasPrice (:hasPrice)
+
+FunctionalDataProperty(:hasPrice)
+DataPropertyDomain(:hasPrice :vehicles)
+DataPropertyRange(:hasPrice xsd:float)
+
+# Data Property: owl:topDataProperty (owl:topDataProperty)
+
+FunctionalDataProperty(owl:topDataProperty)
+DataPropertyRange(owl:topDataProperty DataOneOf("High" "Low" "Medium"))
+
+
+
+############################
+#   Classes
+############################
+
+# Class: :Berlina (:Berlina)
+
+SubClassOf(:Berlina :Cars)
+
+# Class: :Boxer (:Boxer)
+
+SubClassOf(:Boxer :Motor)
+
+# Class: :Buses (:Buses)
+
+SubClassOf(:Buses :vehicles)
+
+# Class: :Cabin (:Cabin)
+
+SubClassOf(:Cabin :PartsVehicle)
+
+# Class: :Camper (:Camper)
+
+SubClassOf(:Camper :Vans)
+
+# Class: :Cars (:Cars)
+
+SubClassOf(:Cars :vehicles)
+SubClassOf(:Cars ObjectAllValuesFrom(:hasCabin :Cabin))
+SubClassOf(:Cars ObjectAllValuesFrom(:hasChassis :chassis))
+SubClassOf(:Cars ObjectAllValuesFrom(:hasMotor :Motor))
+SubClassOf(:Cars ObjectAllValuesFrom(:hasWheels :Wheels))
+
+# Class: :Chrysler (:Chrysler)
+
+SubClassOf(:Chrysler :Commercial)
+SubClassOf(:Chrysler ObjectAllValuesFrom(:hasCabin <http://www.semanticweb.org/mati/ontologies/2019/11/untitled-ontology-4#8-seats>))
+SubClassOf(:Chrysler ObjectAllValuesFrom(:hasWheels :steel))
+SubClassOf(:Chrysler ObjectAllValuesFrom(:isExpensive :Medium-cost))
+
+# Class: :Commercial (:Commercial)
+
+SubClassOf(:Commercial :Vans)
+
+# Class: :Convertible (:Convertible)
+
+SubClassOf(:Convertible :Cars)
+
+# Class: :CostValuePartition (:CostValuePartition)
+
+EquivalentClasses(:CostValuePartition ObjectUnionOf(:Expensive :Low-cost :Medium-cost))
+
+# Class: :CostlyVehicle (:CostlyVehicle)
+
+EquivalentClasses(:CostlyVehicle ObjectAllValuesFrom(:isExpensive :Expensive))
+
+# Class: :Coupé (:Coupé)
+
+SubClassOf(:Coupé :Cars)
+
+# Class: :Expensive (:Expensive)
+
+SubClassOf(:Expensive :CostValuePartition)
+
+# Class: :In-line (:In-line)
+
+SubClassOf(:In-line :Motor)
+
+# Class: :Low-cost (:Low-cost)
+
+SubClassOf(:Low-cost :CostValuePartition)
+
+# Class: :Medium-cost (:Medium-cost)
+
+SubClassOf(:Medium-cost :CostValuePartition)
+
+# Class: :Mercedes (:Mercedes)
+
+SubClassOf(:Mercedes :Berlina)
+SubClassOf(:Mercedes ObjectAllValuesFrom(:hasCabin <http://www.semanticweb.org/mati/ontologies/2019/11/untitled-ontology-4#5-seats>))
+SubClassOf(:Mercedes ObjectAllValuesFrom(:hasWheels :chrome))
+SubClassOf(:Mercedes ObjectAllValuesFrom(:isExpensive :Expensive))
+
+# Class: :Motor (:Motor)
+
+SubClassOf(:Motor :PartsVehicle)
+
+# Class: :Motorhome (:Motorhome)
+
+SubClassOf(:Motorhome :Vans)
+
+# Class: :PartsVehicle (:PartsVehicle)
+
+DisjointClasses(:PartsVehicle :vehicles)
+
+# Class: :Pickup-truck (:Pickup-truck)
+
+SubClassOf(:Pickup-truck :Trucks)
+
+# Class: :Rotary (:Rotary)
+
+SubClassOf(:Rotary :Motor)
+SubClassOf(:Rotary ObjectAllValuesFrom(:isExpensive :Expensive))
+
+# Class: :SUV (:SUV)
+
+SubClassOf(:SUV :Cars)
+
+# Class: :Straight (:Straight)
+
+SubClassOf(:Straight :Motor)
+
+# Class: :Trucks (:Trucks)
+
+SubClassOf(:Trucks :vehicles)
+
+# Class: :VEE (:VEE)
+
+SubClassOf(:VEE :Motor)
+SubClassOf(:VEE ObjectAllValuesFrom(:isExpensive :Expensive))
+
+# Class: :Vans (:Vans)
+
+SubClassOf(:Vans :vehicles)
+
+# Class: :Wheels (:Wheels)
+
+SubClassOf(:Wheels :PartsVehicle)
+
+# Class: :alloy (:alloy)
+
+SubClassOf(:alloy :wheel-rim)
+
+# Class: :bus-frame (:bus-frame)
+
+SubClassOf(:bus-frame :chassis)
+
+# Class: :car-chassis (:car-chassis)
+
+SubClassOf(:car-chassis :chassis)
+
+# Class: :chassis (:chassis)
+
+SubClassOf(:chassis :PartsVehicle)
+
+# Class: :chrome (:chrome)
+
+SubClassOf(:chrome :wheel-rim)
+SubClassOf(:chrome ObjectAllValuesFrom(:isExpensive :Expensive))
+
+# Class: :high-speed (:high-speed)
+
+SubClassOf(:high-speed :tyre)
+SubClassOf(:high-speed ObjectAllValuesFrom(:isExpensive :Expensive))
+
+# Class: :many-seats (:many-seats)
+
+SubClassOf(:many-seats :Cabin)
+
+# Class: :sporty (:sporty)
+
+SubClassOf(:sporty :tyre)
+SubClassOf(:sporty ObjectAllValuesFrom(:isExpensive :Expensive))
+
+# Class: :steel (:steel)
+
+SubClassOf(:steel :wheel-rim)
+
+# Class: :summer (:summer)
+
+SubClassOf(:summer :tyre)
+
+# Class: :touring (:touring)
+
+SubClassOf(:touring :tyre)
+
+# Class: :truck-chassis (:truck-chassis)
+
+SubClassOf(:truck-chassis :chassis)
+
+# Class: :tyre (:tyre)
+
+SubClassOf(:tyre :Wheels)
+
+# Class: :van-chassis (:van-chassis)
+
+SubClassOf(:van-chassis :chassis)
+
+# Class: :vehicles (:vehicles)
+
+SubClassOf(:vehicles ObjectAllValuesFrom(:hasCabin :Cabin))
+SubClassOf(:vehicles ObjectAllValuesFrom(:hasChassis :chassis))
+SubClassOf(:vehicles ObjectAllValuesFrom(:hasMotor :Motor))
+SubClassOf(:vehicles ObjectAllValuesFrom(:hasWheels :Wheels))
+
+# Class: :wheel-rim (:wheel-rim)
+
+SubClassOf(:wheel-rim :Wheels)
+
+# Class: :winter (:winter)
+
+SubClassOf(:winter :tyre)
+
+# Class: <http://www.semanticweb.org/mati/ontologies/2019/11/untitled-ontology-4#2-seats> (<http://www.semanticweb.org/mati/ontologies/2019/11/untitled-ontology-4#2-seats>)
+
+SubClassOf(<http://www.semanticweb.org/mati/ontologies/2019/11/untitled-ontology-4#2-seats> :Cabin)
+
+# Class: <http://www.semanticweb.org/mati/ontologies/2019/11/untitled-ontology-4#5-seats> (<http://www.semanticweb.org/mati/ontologies/2019/11/untitled-ontology-4#5-seats>)
+
+SubClassOf(<http://www.semanticweb.org/mati/ontologies/2019/11/untitled-ontology-4#5-seats> :Cabin)
+
+# Class: <http://www.semanticweb.org/mati/ontologies/2019/11/untitled-ontology-4#8-seats> (<http://www.semanticweb.org/mati/ontologies/2019/11/untitled-ontology-4#8-seats>)
+
+SubClassOf(<http://www.semanticweb.org/mati/ontologies/2019/11/untitled-ontology-4#8-seats> :Cabin)
+
+# Class: <http://www.semanticweb.org/mati/ontologies/2019/11/untitled-ontology-4#VR&W> (<http://www.semanticweb.org/mati/ontologies/2019/11/untitled-ontology-4#VR&W>)
+
+SubClassOf(<http://www.semanticweb.org/mati/ontologies/2019/11/untitled-ontology-4#VR&W> :Motor)
+SubClassOf(<http://www.semanticweb.org/mati/ontologies/2019/11/untitled-ontology-4#VR&W> ObjectAllValuesFrom(:isExpensive :Expensive))
+
+
+DisjointClasses(:Berlina :Convertible :Coupé :SUV)
+DisjointClasses(:Boxer :In-line :Rotary :Straight :VEE <http://www.semanticweb.org/mati/ontologies/2019/11/untitled-ontology-4#VR&W>)
+DisjointClasses(:Buses :Cars :Trucks :Vans)
+DisjointClasses(:Camper :Commercial :Motorhome)
+DisjointClasses(:Expensive :Low-cost :Medium-cost)
+DisjointClasses(:alloy :chrome :steel)
+DisjointClasses(:bus-frame :car-chassis :truck-chassis :van-chassis)
+DisjointClasses(:high-speed :sporty :summer :touring :winter)
+DisjointClasses(:many-seats <http://www.semanticweb.org/mati/ontologies/2019/11/untitled-ontology-4#2-seats> <http://www.semanticweb.org/mati/ontologies/2019/11/untitled-ontology-4#5-seats> <http://www.semanticweb.org/mati/ontologies/2019/11/untitled-ontology-4#8-seats>)
+)
